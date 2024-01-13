@@ -1,3 +1,24 @@
+<style>
+    h1 {
+        font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+    }
+    h2 {
+        color: white;
+        font-size: 30px;
+        font-family: "Lucida Console", "Courier New", monospace;
+    }
+    h3 {
+        color: white;
+        font-size: 20px;
+        font-family: "Lucida Console", "Courier New", monospace;
+    }
+    p, li {
+        font-family: "DejaVu Sans Mono";
+    }
+</style>
+
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">-->
+
 <h1 align="center" id="title"> Quizbit - Quiz Game 🎮</h1>
 
 <p align="center"><img src="https://socialify.git.ci/mrmas-io/quizbit/image?description=1&amp;font=Inter&amp;forks=1&amp;issues=1&amp;language=1&amp;name=1&amp;owner=1&amp;pattern=Floating%20Cogs&amp;pulls=1&amp;stargazers=1&amp;theme=Auto" alt="project-image"></p>
@@ -67,24 +88,3 @@ The project uses a sqlite3 database to store & retrieve user/player information 
 <h2>🛡️ License:</h2>
 
 This project is licensed under the [MIT License](LICENSE). You are free to use modify and distribute this software in accordance with the terms of the license.
-
-
-<style>
-    h1 {
-        font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
-    }
-    h2 {
-        color: white;
-        font-size: 30px;
-        font-family: "Lucida Console", "Courier New", monospace;
-    }
-    h3 {
-        color: white;
-        font-size: 20px;
-        font-family: "Lucida Console", "Courier New", monospace;
-    }
-    p, li, ul {
-        font-family: "DejaVu Sans Mono";
-    }
-</style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">

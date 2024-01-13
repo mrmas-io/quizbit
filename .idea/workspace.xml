@@ -9,8 +9,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9f40077-ba45-4211-a23f-3e7b48e6cfba" name="Changes" comment="first-commit">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="c9f40077-ba45-4211-a23f-3e7b48e6cfba" name="Changes" comment="update-readme">
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -110,7 +109,7 @@
       <updated>1705109841699</updated>
       <workItem from="1705109843665" duration="1423000" />
       <workItem from="1705111280119" duration="977000" />
-      <workItem from="1705164191987" duration="8649000" />
+      <workItem from="1705164191987" duration="9433000" />
     </task>
     <task id="LOCAL-00001" summary="first-commit">
       <option name="closed" value="true" />
@@ -128,7 +127,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705111368674</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="update-readme">
+      <option name="closed" value="true" />
+      <created>1705176176539</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1705176176539</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,6 +143,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first-commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first-commit" />
+    <MESSAGE value="update-readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="update-readme" />
   </component>
 </project>
