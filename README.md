@@ -1,83 +1,90 @@
-# QUIZBIT - QUIZ CHALLENGE
+<h1 align="center" id="title"> Quizbit - Quiz Game 🎮</h1>
 
-This project is a simple & fun Terminal based Quiz Game written in C.
-___
+<p align="center"><img src="https://socialify.git.ci/mrmas-io/quizbit/image?description=1&amp;font=Inter&amp;forks=1&amp;issues=1&amp;language=1&amp;name=1&amp;owner=1&amp;pattern=Floating%20Cogs&amp;pulls=1&amp;stargazers=1&amp;theme=Auto" alt="project-image"></p>
 
-**Table of Contents**
-1. [Project Description](#project-description)
-2. [Installation Instructions](#installation-instructions)
-3. [Usage Guide](#usage-guide)
-4. [Data Storage](#data-storage)
-5. [Categories and Questions](#categories-and-questions)
-6. [Contributing Guidelines](#contributing-guidelines)
-7. [License Information](#license-information)
+<h2>📝 Project Description</h2>
+<p id="description">This project is a simple &amp; fun Terminal based Quiz Game written in C. The game tests your knowledge in three categories: Science Sports and General Knowledge. To participate users can either log in or sign up to their account. Account information's are stored in an SQLite database file. In addition to tracking user information the game also maintains a record of each player's scores.</p>
 
-## Project Description
-The game tests your knowledge in three categories: Science, Sports, and General Knowledge. To participate, users can either log in or sign up to their account. Account informations are stored in an sqlite database file. In addition to tracking user information, the game also maintains a record of each player's scores.
+<h2>🧐 Features</h2>
+### The Quiz Game is user-friendly and offers the following features:
 
-## Installation Instructions
-> **Requirements :** *gcc compiler, git, sqlite3, & openssl*.
+*   **Sign Up:** New users can create an account with a unique username and password.
+*   **Log In:** Registered users can log in with their credentials.
+*   **Quiz Category:** Select from Science Sports or General Knowledge quizzes.
+*   **Answer Questions:** The game will present random questions from the chosen category.
+*   **Score Tracking:** Your scores are recorded and can be viewed in your profile.
+*   **Account Management:** You can view your profile edit and delete your profile.
 
-To run the Terminal Quiz Game on your system, follow these steps:
+<h2>🛠️ Installation Steps:</h2>
+``REQUIREMENTS: OpenSSL, SQLite3, GCC, & Git.``
+<p>1. Clone The Repo</p>
 
-- [X] **Clone the Repository :**
 ```bash
 git clone https://github.com/mrmas-io/quizbit.git
 ```
-- [X] **Build The Project:**
+
+<p>2. Build The Project</p>
+
 ```bash
 make
 ```
-- [X] **Run The Project:**
+
+<p>3. Run The Project</p>
+
 ```bash
 make run
 ```
-- [X] **Clean The Make Files**
+
+<p>4. Clean The Build Files</p>
+
 ```bash
 make clean
 ```
+``NOTE: running make clean may prompt you to remove the generated .db files``
 
+<h2>📝 Usage Guide</h2>
 ``Follow the on-screen instructions to create an account, log in, and enjoy the quiz.``
-
-## Usage Guide
-- ### The Quiz Game is user-friendly and offers the following features:
-  - ![Example Screenshot](./.idea/help.png)
-- **Sign Up**: New users can create an account with a unique username and password.
-- **Log In**: Registered users can log in with their credentials.
-- **Choose a Category**: Select from Science, Sports, or General Knowledge quizzes.
-- **Answer Questions**: The game will present random questions from the chosen category.
-- **Score Tracking**: Your scores are recorded and can be viewed in your profile.
-  - ![Example Screenshot](./.idea/scoreboard.png)
-- **Account Management:** You can view your profile, edit and delete your profile.
-  - ![Example Screenshot](./.idea/profile.png)
-
-For example, to create an account and play the quiz, follow these steps:
-
 1. Run the application.
-   - ![Example Screenshot](./.idea/homepage.png)
 2. Choose "Sign Up" and follow the prompts to create an account.
-   - ![Example Screenshot](./.idea/signup.png)
 3. Log in with your newly created account.
 4. Select a quiz category.
 5. Answer the quiz questions and track your score.
 
-|                                             |                                             |
-|---------------------------------------------|---------------------------------------------|
-| ![Example Screenshot](./.idea/mainmenu.png) | ![Example Screenshot](./.idea/gameplay.png) |
+<h2>🍰 Contribution Guidelines:</h2>
 
-## Data Storage
-The project uses an sqlite3 database to store user/player account information and the quiz question & answer information.
+If you'd like to contribute, please follow these steps
+- Fork the repository.
+- Create a new branch for your feature or bug fix.
+- Make your changes and ensure all tests pass.
+- Submit a pull request.
+- Your contribution will be reviewed and merged.
 
-## Categories and Questions
-The quiz game features three categories: Science, Sports, and General Knowledge. Questions for each category are organized and randomly presented to the player to keep the game engaging.
-- ![Example Screenshot](./.idea/gameplay.png)
-## Contributing Guidelines
-We welcome contributions to the project. If you'd like to contribute, please follow these steps:
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Make your changes and ensure all tests pass.
-4. Submit a pull request.
-5. Your contribution will be reviewed and merged.
+<h2>💻 Data Storage</h2>
 
-## License Information
-This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and distribute this software in accordance with the terms of the license.
+The project uses a sqlite3 database to store & retrieve user/player information and the quiz question & answer information.
+
+
+<h2>🛡️ License:</h2>
+
+This project is licensed under the [MIT License](LICENSE). You are free to use modify and distribute this software in accordance with the terms of the license.
+
+
+<style>
+    h1 {
+        font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+    }
+    h2 {
+        color: white;
+        font-size: 30px;
+        font-family: "Lucida Console", "Courier New", monospace;
+    }
+    h3 {
+        color: white;
+        font-size: 20px;
+        font-family: "Lucida Console", "Courier New", monospace;
+    }
+    p, li, ul {
+        font-family: "DejaVu Sans Mono";
+    }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
