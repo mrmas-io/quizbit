@@ -1,3 +1,4 @@
+<div>
 <style>
     h1 {
         font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
@@ -13,11 +14,10 @@
         font-family: "Lucida Console", "Courier New", monospace;
     }
     p, li {
-        font-family: "DejaVu Sans Mono";
+        font-family: "DejaVu Sans Mono", serif;
     }
 </style>
-
-<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">-->
+</div>
 
 <h1 align="center" id="title"> Quizbit - Quiz Game 🎮</h1>
 
