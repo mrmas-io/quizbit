@@ -1,8 +1,10 @@
 //
 // Created by mrmas on 12/12/23.
 //
-#include "../../sources/src.h"
+#include "../sources/src.h"
 
+static const char *quizDatabasePath = "./core/database/quiz.db";
+static const char *userDatabasePath = "./core/database/quiz.db";
 static const Quiz_t Science[] = {
         {
                     .question = "Which of the following is the smallest unit of matter?",
@@ -618,6 +620,7 @@ static const Quiz_t Science[] = {
  * The function creates two tables: 'users' to store user details after signing up
  * and 'players' to keep user play records.
  */
+
 bool createGameDatabase() {
     sqlite3 *db;
     char *errMsg = 0;
@@ -1007,6 +1010,23 @@ bool readRand(sqlite3 *db, Quiz_t *quests, const char *tableName) {
     return true;
 }
 
+
+/**
+ * @brief Cross-platform function to checks for file existence in the directory
+ * @param filePath A const pointer variable of type "const char*" (Path & Name of file to check for).
+ **/
+bool fileExists(const char *filePath) {
+#if defined(_WIN32) || defined(_WIN64) || defined(__CYGWIN__) || defined(__MINGW32__) || defined(__MINGW64__)
+    // Windows-specific code
+        if (_access(filePath, 0) != 0) return false;
+        else return true;
+#else
+    // Unix-like (including Linux, macOS) code
+    if (access(filePath, F_OK) != 0) return false;
+    else return true;
+#endif
+}
+
 /**
  * @brief Sets up the initial state of the program by checking and creating necessary databases.
  *
@@ -1022,6 +1042,7 @@ bool readRand(sqlite3 *db, Quiz_t *quests, const char *tableName) {
  */
 void setup(void) {
     sqlite3 *db;
+    if fileExists();
 #if defined(_WIN32) || defined(_WIN64) || defined(__CYGWIN__) || defined(__MINGW32__) || defined(__MINGW64__)
     // Check if the game & quiz database exists on Windows
     if (_access("./core/database/quiz.db", 0) != 0) {
