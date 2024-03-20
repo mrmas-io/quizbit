@@ -16,7 +16,7 @@ This project is a simple &amp; fun Terminal based Quiz Game written in C. The ga
 - **Account Management:** You can view your profile edit and delete your profile.
 
 ## 🛠️ Installation Steps:
-``REQUIREMENTS: OpenSSL, SQLite3, GCC, & Git.``
+``REQUIREMENTS: OpenSSL, SQLite3, CMake, Makefile, GCC, & Git.``
 
 1. Clone The Repo
    ```bash
