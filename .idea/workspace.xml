@@ -3,15 +3,34 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
-  <component name="CMakeSettings">
+  <component name="CMakeRunConfigurationManager">
+    <generated>
+      <config projectName="QuizBit" targetName="memcheck" />
+      <config projectName="QuizBit" targetName="run" />
+      <config projectName="QuizBit" targetName="main" />
+      <config projectName="QuizBit" targetName="forceclean" />
+    </generated>
+  </component>
+  <component name="CMakeSettings" AUTO_RELOAD="true">
     <configurations>
       <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+      <configuration PROFILE_NAME="Release" ENABLED="true" CONFIG_NAME="Release" />
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9f40077-ba45-4211-a23f-3e7b48e6cfba" name="Changes" comment="update-readme">
-      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+    <list default="true" id="c9f40077-ba45-4211-a23f-3e7b48e6cfba" name="Changes" comment="LICENSE">
+      <change afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/access.c" beforeDir="false" afterPath="$PROJECT_DIR$/core/access.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/auth.c" beforeDir="false" afterPath="$PROJECT_DIR$/core/auth.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/database/db.c" beforeDir="false" afterPath="$PROJECT_DIR$/core/database.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sources/src.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sources/src.h" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +39,18 @@
   </component>
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CMakeLists.txt" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="PUSH_TAGS">
@@ -58,13 +89,6 @@
       </UrlAndAccount>
     </option>
   </component>
-  <component name="MakefileLocalSettings">
-    <option name="projectSyncType">
-      <map>
-        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
-      </map>
-    </option>
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -84,6 +108,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Makefile Target.QuizBit.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
@@ -91,15 +116,35 @@
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/media/mrmas/A41CD3951CD3613A/MUHAMMED/MrMas/iticu-eee/first-year/projects/QuizBit&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/media/mrmas/A41CD3951CD3613A/MUHAMMED/MrMas/EDU-CSEEE/first-year/projects/QuizBit&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/core" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="cmake --help" />
+      <command value="cmake" />
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="QuizBit" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="main" workingDirectory="$PROJECT_DIR$" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -111,7 +156,26 @@
       <workItem from="1705109843665" duration="1423000" />
       <workItem from="1705111280119" duration="977000" />
       <workItem from="1705164191987" duration="12577000" />
-      <workItem from="1705186772792" duration="831000" />
+      <workItem from="1705186772792" duration="1283000" />
+      <workItem from="1709110474667" duration="641000" />
+      <workItem from="1709111534811" duration="39000" />
+      <workItem from="1709111616368" duration="897000" />
+      <workItem from="1709116274857" duration="14097000" />
+      <workItem from="1709148749203" duration="49000" />
+      <workItem from="1709148880135" duration="2477000" />
+      <workItem from="1710325424205" duration="556000" />
+      <workItem from="1710326035139" duration="1973000" />
+      <workItem from="1710437226070" duration="8767000" />
+      <workItem from="1710502082680" duration="19758000" />
+      <workItem from="1710545992022" duration="716000" />
+      <workItem from="1710696129362" duration="6762000" />
+      <workItem from="1710755894205" duration="4917000" />
+      <workItem from="1710762784347" duration="52000" />
+      <workItem from="1710762844701" duration="333000" />
+      <workItem from="1710784410487" duration="7130000" />
+      <workItem from="1710834211520" duration="5001000" />
+      <workItem from="1710847929375" duration="10250000" />
+      <workItem from="1710926319505" duration="2561000" />
     </task>
     <task id="LOCAL-00001" summary="first-commit">
       <option name="closed" value="true" />
@@ -177,7 +241,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705180020404</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="LICENSE">
+      <option name="closed" value="true" />
+      <created>1705188275460</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1705188275461</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,6 +258,11 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first-commit" />
     <MESSAGE value="update-readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="update-readme" />
+    <MESSAGE value="LICENSE" />
+    <option name="LAST_COMMIT_MESSAGE" value="LICENSE" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

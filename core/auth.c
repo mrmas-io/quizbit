@@ -1,7 +1,7 @@
 //
 // Created by mrmas on 01/01/24.
 //
-#include "../sources/src.h"
+#include "../utils/utils.h"
 
 /**
  * @brief Randomly generates a new player ID after a new signup.
@@ -78,7 +78,7 @@ size_t getPass(const char *prompt, char *passwd) {
  */
 char *hashPass(const char *password) {
     // Allocate memory for the hash value (32 bytes + null terminator) & handle memory allocation error
-    char *hash_str = malloc(SHA256_DIGEST_LENGTH * 2 + 1);
+    char *hash_str = (char *)calloc((SHA256_DIGEST_LENGTH * 2 + 1), sizeof(char));
     if (!hash_str) {
         return NULL;
     }
@@ -245,7 +245,7 @@ bool check_duplicate(const char *Uname) {
     bool exists = false;
 
     // Open the database
-    int rc = sqlite3_open("./core/database/game_database.db", &db);
+    int rc = sqlite3_open(FILE_PATH, &db);
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
         sqlite3_close(db);
@@ -306,7 +306,7 @@ bool verifyLogin(const char *Uname, const char *Passwd) {
     bool isValid = false;
 
     // Open the database
-    int rc = sqlite3_open("./core/database/game_database.db", &db);
+    int rc = sqlite3_open(FILE_PATH, &db);
     if (rc != SQLITE_OK) {
         fprintf(stderr, " [!] - Can't open database: %s\n", sqlite3_errmsg(db));
         sqlite3_close(db);

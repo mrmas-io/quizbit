@@ -23,21 +23,25 @@ This project is a simple &amp; fun Terminal based Quiz Game written in C. The ga
    git clone https://github.com/mrmas-io/quizbit.git
    ```
 
-2. Build The Project
-   ```bash
-   make
+2. Build The Project On Unix
+   ```shell
+   ./build.sh
    ```
 
-3. Run The Project
-   ```bash
-   make run
+3. Build The Project On Windows
+   ```shell
+   .\build.bat
    ```
 
-4. Clean The Build Files
-   ```bash
-   make clean
+4. Clean The Build Files On Linux
+   ```shell
+   ./build.sh --clean
    ```
-``NOTE: running make clean may prompt you to remove the generated .db files``
+5. Clean The Build Files On Windows
+   ```shell
+      ./build.sh --clean
+   ```
+``NOTE: running ./build.sh --clean or .\build.bat --clean will remove the generated build files including the .db files``
 
 ## Usage Guide
 ``Follow the on-screen instructions to create an account, log in, and enjoy the quiz.``

@@ -1,7 +1,7 @@
 //
 // Created by mrmas on 01/01/24.
 //
-#include "../sources/src.h"
+#include "../utils/utils.h"
 
 /**
  * @brief Displays and prompts options on the homepage.
@@ -10,7 +10,12 @@
 void homepage(void) {
     clr();
     short x = 8, y = 1, choice;
-    enum options {LOGIN = '1', SIGNUP = '2', EXIT = '3', QUIT = CTRL_K('c')};
+    enum options {
+        LOGIN   = '1',
+        SIGNUP  = '2',
+        EXIT    = '3',
+        QUIT    = CTRL_K('c')
+    };
 
     SetCursorPosition(x, y);
     print_banner(10, " QUIZBIT - QUIZ GAME ", 10);
@@ -25,20 +30,20 @@ void homepage(void) {
         SetCursorPosition(x + 10, y + 1);
         switch (cgetch()) {
             case LOGIN :
-                login();
-                break;
+                 login();
+                 break;
 
             case SIGNUP :
-                signup();
-                break;
+                 signup();
+                 break;
 
             case EXIT :
             case QUIT :
-                exit(EXIT_FAILURE);
+                 exit(EXIT_FAILURE);
             default:
-                choice = -1;
+                 choice = -1;
         }
-    } while (choice == -1);
+    } while (-1 == choice);
 }
 
 /**
@@ -48,7 +53,7 @@ void signup(void) {
     short x, y, check;
     account_t *Person;
 
-    if (NULL == (Person = (account_t*)malloc(sizeof(account_t)))) {
+    if (NULL == (Person = (account_t *)calloc(sizeof(account_t ), 2))) {
         print_error("Error: %s to the struct!", strerror(ENOMEM));
         exit(EXIT_FAILURE);
     }
@@ -95,7 +100,7 @@ void signup(void) {
             check = -1;
             cgetch();
         }
-    } while (check == -1);
+    } while (-1 == check);
     free(Person);
     print_success("Account Successfully Created!... Press any key to go to the login page : ");
     cgetch();
@@ -112,7 +117,7 @@ void login(void) {
     char __uname[KEYSIZE];
     char __passwd[KEYSIZE];
 
-    if (NULL == (player = (account_t*)malloc(sizeof(account_t)))) {
+    if (NULL == (player = (account_t*)calloc(sizeof(account_t), 2))) {
         print_error("Error: %s to the struct!", strerror(ENOMEM));
         exit(EXIT_FAILURE);
     }
@@ -143,15 +148,15 @@ void login(void) {
             cgetch();
         }
         free(hashedPassword);
+
     } while (check <= 3 && check > 0);
+
     if (check >= 3) {
         print_error("Error, Too many attempts : %s.", strerror(ECANCELED));
         cgetch();
     }
     else {
         print_success("Login Successful!... Press any key to go to the main menu : ");
-
-        //struct_memset(player);
         getPlayerData(__uname, player);
         cgetch();
         mainmenu(player);
@@ -170,6 +175,7 @@ void login(void) {
  */
 
 void logout(account_t *Session) {
+    // Reset/Clear the fields of the struct and it's members
     struct_memset(Session);
     free(Session);
     homepage();
@@ -183,7 +189,12 @@ void logout(account_t *Session) {
 void mainmenu(account_t *player) {
     clr();
     short x = 8, y = 1;
-    enum options {GAMEPLAY = '1', HELP = '2', SETTINGS = '3', LOGOUT = '4'};
+    enum options {
+         GAMEPLAY   = '1',
+         HELP       = '2',
+         SETTINGS   = '3',
+         LOGOUT     = '4'
+    };
 
     SetCursorPosition(x, y);
     print_banner(10, " QUIZBIT - MAINMENU ", 10);
@@ -201,20 +212,20 @@ void mainmenu(account_t *player) {
         SetCursorPosition(x + 2, y + 1);
         switch (cgetch()) {
             case GAMEPLAY :
-                gameplay(player);
-                break;
+                 gameplay(player);
+                 break;
 
             case HELP :
-                displayHelp(player);
-                break;
+                 displayHelp(player);
+                 break;
 
             case SETTINGS :
-                settings(player);
-                break;
+                 settings(player);
+                 break;
 
             case LOGOUT :
-                logout(player);
-                break;
+                 logout(player);
+                 break;
             default:
                 choice = -1;
         }
@@ -232,7 +243,14 @@ void mainmenu(account_t *player) {
 void settings(account_t *player) {
     clr();
     short x = 8, y = 1, choice;
-    enum options {SCOREBOARD = '1', RESETSCORE = '2', PROFILE = '3', EDITACCOUNT = '4', DELETEACCOUNT = '5', MAINMENU = '6'};
+    enum options {
+         SCOREBOARD     = '1',
+         RESETSCORE     = '2',
+         PROFILE        = '3',
+         EDITACCOUNT    = '4',
+         DELETEACCOUNT  = '5',
+         MAINMENU       = '6'
+    };
 
     SetCursorPosition(x, y);
     print_banner(10, " QUIZBIT - SETTINGS ", 10);
@@ -252,7 +270,6 @@ void settings(account_t *player) {
             case RESETSCORE :
                 if (updateScore(player, 0)) {
                     char tmp[KEYSIZE]; strcpy(tmp, player->username);
-                    //struct_memset(player);
                     getPlayerData(tmp, player);
                 }
                 mainmenu(player);
@@ -276,7 +293,7 @@ void settings(account_t *player) {
                         default :
                             choice = -1;
                     }
-                } while(choice == -1);
+                } while(-1 == choice);
                 break;
             case DELETEACCOUNT :
                 print_error("This action is irreversible. Are you sure you want to delete your account? [Y/N] : ");
@@ -291,7 +308,7 @@ void settings(account_t *player) {
                         default :
                             choice = -1;
                     }
-                } while(choice == -1);
+                } while(-1 == choice);
                 break;
             case MAINMENU :
                 mainmenu(player);
@@ -310,7 +327,12 @@ void settings(account_t *player) {
 void gameplay(account_t *player) {
     clr();
     short x = 8, y = 1, choice;
-    enum options {SCIENCE = '1', SPORTS = '2', GENERALKNOWLEDGE = '3', MAINMENU = '4'};
+    enum options {
+         SCIENCE            = '1',
+         SPORTS             = '2',
+         GENERALKNOWLEDGE   = '3',
+         MAINMENU           = '4'
+    };
 
     SetCursorPosition(x, y);
     print_banner(10, " QUIZBIT - GAMEPLAY", 10);
@@ -328,17 +350,17 @@ void gameplay(account_t *player) {
         SetCursorPosition(x + 3, y + 1);
         switch (cgetch()) {
             case SCIENCE :
-                displayQuestions(player, "SCIENCE");
-                break;
+                 displayQuestions(player, "SCIENCE");
+                 break;
             case SPORTS :
-                displayQuestions(player, "SPORTS");
-                break;
+                 displayQuestions(player, "SPORTS");
+                 break;
             case GENERALKNOWLEDGE :
-                displayQuestions(player, "GENERALKNOWLEDGE");
-                break;
+                 displayQuestions(player, "GENERALKNOWLEDGE");
+                 break;
             case MAINMENU :
-                mainmenu(player);
-                break;
+                 mainmenu(player);
+                 break;
             default:
                 choice = -1;
         }
@@ -363,11 +385,12 @@ bool updateScore(account_t *player, uint32_t score) {
              "UPDATE player SET score = ?, last_played = ? WHERE username = ?;");
 
     sqlite3 *db;
-    int rc = sqlite3_open("./core/database/game_database.db", &db);
+    int rc = sqlite3_open(FILE_PATH, &db);
     if (rc != SQLITE_OK) {
         print_error("Cannot open database: %s", sqlite3_errmsg(db));
         return false;
     }
+
     char *registeredDatetime = getFormattedDatetime();
     if (registeredDatetime != NULL) {
         strcpy(player->scores.date, registeredDatetime);
@@ -378,29 +401,28 @@ bool updateScore(account_t *player, uint32_t score) {
     }
     // Prepare and execute the query
     if (sqlite3_prepare_v2(db, query, -1, &stmt, NULL) == SQLITE_OK) {
-        // Bind the score, update date/time & username parameter
         if (sqlite3_bind_int(stmt, 1, score) == SQLITE_OK &&
-                sqlite3_bind_text(stmt, 2, player->scores.date, -1, SQLITE_STATIC) == SQLITE_OK &&
-                sqlite3_bind_text(stmt, 3, player->username, -1, SQLITE_STATIC) == SQLITE_OK) {
-            // Execute the statement
+            sqlite3_bind_text(stmt, 2, player->scores.date, -1, SQLITE_STATIC) == SQLITE_OK &&
+            sqlite3_bind_text(stmt, 3, player->username, -1, SQLITE_STATIC) == SQLITE_OK) {
             if (sqlite3_step(stmt) != SQLITE_DONE) {
-                print_error("Error updating score: %s", sqlite3_errmsg(db));
-                status = false;
+                fprintf(stderr, "Error updating score: %s\n", sqlite3_errmsg(db));
+                sqlite3_finalize(stmt);
+                sqlite3_close(db);
+                return false;
             }
         } else {
-            print_error("Error binding parameters: %s", sqlite3_errmsg(db));
-            status = false;
+            fprintf(stderr, "Error binding parameters: %s\n", sqlite3_errmsg(db));
+            sqlite3_finalize(stmt);
+            sqlite3_close(db);
+            return false;
         }
-        // Finalize the statement
         sqlite3_finalize(stmt);
     } else {
-        print_error("Error preparing SQL statement: %s", sqlite3_errmsg(db));
-        status = false;
+        fprintf(stderr, "Error preparing SQL statement: %s\n", sqlite3_errmsg(db));
+        sqlite3_close(db);
+        return false;
     }
-
     sqlite3_close(db);
-    //getPlayerData(player->username, player);
-    //mainmenu(player);
     return status;
 }
 
@@ -417,7 +439,7 @@ void editAccount(account_t *player) {
     account_t *Person;
     short x, y, check;
 
-    if (sqlite3_open("./core/database/game_database.db", &db) != SQLITE_OK) {
+    if (sqlite3_open(FILE_PATH, &db) != SQLITE_OK) {
         print_error("Cannot open database: %s", sqlite3_errmsg(db));
         cgetch();
         mainmenu(player);
@@ -437,7 +459,7 @@ void editAccount(account_t *player) {
         SetCursorPosition(x + 2, y += 1);
         printf("\033[30;47m-> Must contain Alphanumeric & Special characters.\033[0m");
 
-        if ((Person = (account_t *)malloc(sizeof(account_t))) == NULL) {
+        if ((Person = (account_t *)calloc(sizeof(account_t), 2)) == NULL) {
             print_error("Error %s to struct.", strerror(ENOMEM));
             sqlite3_close(db);
             cgetch();
@@ -452,6 +474,7 @@ void editAccount(account_t *player) {
         input("Enter your username : ", Person->username, KEYSIZE, stdin);
         SetCursorPosition(x + 4, y + 2);
         input("Enter your password : ", Person->password, KEYSIZE, stdin);
+
         if (validateCredentials(Person->username, Person->password)) {
             if (check_duplicate(Person->username)) {
                 print_error("Error : Username isn't available, try again");
@@ -468,7 +491,7 @@ void editAccount(account_t *player) {
             check = -1;
             cgetch();
         }
-    } while(check == -1);
+    } while(-1 == check);
 
     if (updatePlayerData(db, "name", player->name, Person->name, "users") &&
             updatePlayerData(db, "surname", player->surname, Person->surname, "users") &&
@@ -484,7 +507,6 @@ void editAccount(account_t *player) {
     // Close the database connection
     sqlite3_close(db);
     cgetch();
-    //struct_memset(player);
     getPlayerData(Person->username, player);
     free(Person);
     mainmenu(player);
@@ -501,7 +523,7 @@ void deleteAccount(account_t *player) {
     sqlite3 *db;
     short x = 8, y = 1;
 
-    int rc = sqlite3_open("./core/database/game_database.db", &db); // Use your actual database connection
+    int rc = sqlite3_open(FILE_PATH, &db); // Use your actual database connection
     if (rc != SQLITE_OK) {
         print_error("Cannot open database : %s", sqlite3_errmsg(db));
         cgetch();
@@ -548,12 +570,13 @@ bool getPlayerData(const char *username, account_t *playerData) {
              "SELECT player_id, name, surname, username, score, last_played FROM player WHERE username = ?;");
 
     sqlite3 *db;
-    int rc = sqlite3_open("./core/database/game_database.db", &db);
+    int rc = sqlite3_open(FILE_PATH, &db);
 
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Cannot open database: %s\n", sqlite3_errmsg(db));
-        return rc;
+        return false;
     }
+
     // Prepare and execute the query
     if (sqlite3_prepare_v2(db, query, -1, &stmt, NULL) == SQLITE_OK) {
         // Bind the username parameter
@@ -561,12 +584,12 @@ bool getPlayerData(const char *username, account_t *playerData) {
             // Execute the statement
             if (sqlite3_step(stmt) == SQLITE_ROW) {
                 // Retrieve data from the result set and store it in the account_t struct
-                strncpy(playerData->pId, (const char *)sqlite3_column_text(stmt, 0), sizeof(playerData->pId) - 1);
-                strncpy(playerData->name, (const char *)sqlite3_column_text(stmt, 1), sizeof(playerData->name) - 1);
-                strncpy(playerData->surname, (const char *)sqlite3_column_text(stmt, 2), sizeof(playerData->surname) - 1);
-                strncpy(playerData->username, (const char *)sqlite3_column_text(stmt, 3), sizeof(playerData->username) - 1);
+                strcpy(playerData->pId, (const char *)sqlite3_column_text(stmt, 0));
+                strcpy(playerData->name, (const char *)sqlite3_column_text(stmt, 1));
+                strcpy(playerData->surname, (const char *)sqlite3_column_text(stmt, 2));
+                strcpy(playerData->username, (const char *)sqlite3_column_text(stmt, 3));
                 playerData->scores.score = sqlite3_column_int(stmt, 4);
-                strncpy(playerData->scores.date, (const char *)sqlite3_column_text(stmt, 5), sizeof(playerData->scores.score) - 1);
+                strcpy(playerData->scores.date, (const char *)sqlite3_column_text(stmt, 5));
 
                 // Finalize the statement
                 sqlite3_finalize(stmt);

@@ -1,7 +1,7 @@
-#include "./sources/src.h"
+#include "./utils/utils.h"
 
-int main() {
-    setup();
-    homepage();
-    return 0;
+int main(void) {
+    if (setup())
+        homepage();
+    return EXIT_SUCCESS;
 }
