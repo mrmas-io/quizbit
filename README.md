@@ -39,7 +39,7 @@ This project is a simple &amp; fun Terminal based Quiz Game written in C. The ga
    ```
 5. Clean The Build Files On Windows
    ```shell
-      ./build.sh --clean
+   .\build.bat --clean
    ```
 ``NOTE: running ./build.sh --clean or .\build.bat --clean will remove the generated build files including the .db files``
 
